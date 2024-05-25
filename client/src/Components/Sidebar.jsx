@@ -1,48 +1,4 @@
-// import React from "react";
-// import "./style.css";
-// import PersonIcon from "@mui/icons-material/Person";
-// import SearchIcon from "@mui/icons-material/Search";
-// import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-// import Icon from "@mui/material/IconButton";
-// import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-// import GroupAddIcon from "@mui/icons-material/GroupAdd";
-// import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-// export default function Sidebar() {
-//   return (
-//     <div className="sidebar-container">
-//       <div className="sb-header">
-//         {/* <div className="sb-icons"> */}
-//         <button className="btn">
-//           <PersonIcon />
-//         </button>
-
-//         <button className="btn">
-//           <PersonAddAltIcon />
-//         </button>
-//         <button className="btn">
-//           <GroupAddIcon />
-//         </button>
-//         {/* </div> */}
-//       </div>
-//       <div className="sb-search">
-//         <button className="btn">
-//           <SearchIcon />
-//         </button>
-//         <input type="text" placeholder="Search" className="search-box" />
-//       </div>
-//       <div className="sb-header">
-//         <button className="btn">
-//           <QuestionAnswerIcon />
-//         </button>
-//         <button className="btn">
-//           <AddCircleOutlineIcon />
-//         </button>
-//       </div>
-//       {/* conversation */}
-//     </div>
-//   );
-// }
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import PersonIcon from "@mui/icons-material/Person";
@@ -57,7 +13,7 @@ export default function Sidebar({ onSelectUser, onSelectGroup }) {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    // Fetch users and groups from the API
+
     fetch("http://localhost:4000/api/users")
       .then((response) => response.json())
       .then((data) => {
