@@ -1,0 +1,204 @@
+/* General styles
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+/* } */
+/*
+.sidebar-container {
+  width: 30%;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.chat-area {
+  width: 70%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Sidebar styles */
+/*
+.sb-header {
+  display: flex;
+  justify-content: right;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sb-icons {
+  display: flex;
+}
+
+.icon-btn {
+  padding: 2px;
+}
+.btn{
+    background-color: white;
+    color: grey;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 3vw;
+    padding: 0;
+    margin-left: 2vw;
+}
+
+/* Remove hover shadows and ensure consistent icon size */
+/*
+.icon-btn .MuiSvgIcon-root {
+  font-size: 24px; /* Standard icon size */
+  /* box-shadow: none; Remove any shadows */
+  /* transition: none; Ensure no shadow on hover */
+/* } */
+/*
+.icon-btn:hover .MuiSvgIcon-root {
+  box-shadow: none; /* Remove any hover shadows */
+/* } */
+
+/* Consistent spacing for icons */
+/*
+.sb-header .icon-btn, .sb-search .icon-btn, .sb-conversation .icon-btn {
+  margin-right: 1px; /* Adjust as needed for consistent spacing */
+/* } */
+/*
+.sb-search {
+  display: flex;
+  /* align-items: right; */
+  /* justify-content: right;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-left:  3vw; */
+/* } */
+/*
+.search-box {
+  flex:.5;
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-left: 1.5vw;
+  margin-right: 0;
+}
+
+.sb-conversation {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+} 
+
+*/
+
+
+/* style.css */
+
+/* style.css */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+.sidebar-container {
+  width: 30%;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.chat-area {
+  width: 70%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.sb-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sb-icons {
+  display: flex;
+}
+
+.icon-btn {
+  padding: 8px;
+}
+
+.icon-btn .MuiSvgIcon-root {
+  font-size: 24px; /* Standard icon size */
+  box-shadow: none; /* Remove any shadows */
+  transition: none; /* Ensure no shadow on hover */
+}
+
+.icon-btn:hover .MuiSvgIcon-root {
+  box-shadow: none; /* Remove any hover shadows */
+}
+
+.sb-search {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.search-box {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.sb-users, .sb-groups {
+  padding: 10px 0;
+}
+
+.user-item, .group-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-item:hover, .group-item:hover {
+  background-color: #e0e0e0;
+}
+
+.messages {
+  margin-top: 20px;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.no-messages {
+  color: #888;
+}
