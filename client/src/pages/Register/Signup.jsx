@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Register.css";
 
 const Register = () => {
@@ -32,23 +33,23 @@ const Register = () => {
     data.append("password", formData.password);
 
     try {
-      const response = await fetch("http://localhost:3000/api/users/signup", {
-        method: "POST",
-        body: data,
-      });
+      const response = await axios.post(
+        "http://localhost:4000/api/users/signup",
+        data,
+        {
+          method: "POST",
+          body: data,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error("Signup failed");
-      }
+      const { token } = response.data;
 
-      const result = await response.json();
-      const { token } = result;
-
-      // Store token if needed
       localStorage.setItem("token", token);
 
-      // Navigate to home page
-      navigate("/home");
+      navigate("/chat");
     } catch (error) {
       console.error(error);
       alert("Signup failed. Please try again.");
