@@ -11,7 +11,7 @@ export default function ChatArea({ messages }) {
       ) : (
         <div className="messages">
           {messages.map((message, index) => (
-            <div key={index} className="message">
+            <div key={index} className="message-box">
               <p>{message.message}</p>
             </div>
           ))}
