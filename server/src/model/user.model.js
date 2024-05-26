@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     profile_photo: {
-      type: String,
+      type: Object,
       required: false,
     },
     about: {
