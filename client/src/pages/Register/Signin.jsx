@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 import "./Login.css";
+// import Register from "./Signup";
+// import { IconButton } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { handleToken } = useContext(AuthContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -29,6 +33,7 @@ const Login = () => {
       // Handle successful login, e.g., save token, redirect, etc.
       console.log(data);
       if (data.token) {
+        handleToken(data.token);
         navigate("/chat");
       } else {
         setError("Login Failed due to invalid email or password");
@@ -67,7 +72,16 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="btn-container">
+          <button type="submit">Login</button>
+          <button>
+            <Link to="/signup"> Register</Link>
+          </button>
+        </div>
+        {/* <a navigate("/signup") > Register </a> */}
+        {/* <IconButton>   <Link to="/signup"> Register</Link>
+       
+        </IconButton> */}
       </form>
     </div>
   );
