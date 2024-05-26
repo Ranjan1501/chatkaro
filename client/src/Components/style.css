@@ -116,6 +116,8 @@ body, html {
 .main-container {
   display: flex;
   height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+  
 }
 
 .sidebar-container {
@@ -123,32 +125,45 @@ body, html {
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 5px;
+  color: aliceblue;
   box-sizing: border-box;
+   background-image: url('../assests/peakpx.jpg'); 
+    background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .chat-area {
-  width: 70%;
+  width: 100%;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 10px;
+    background-image: url('../assests/peakpx.jpeg'); 
+    background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  
+  
 }
 
 .sb-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
   border-bottom: 1px solid #ccc;
 }
 
 .sb-icons {
   display: flex;
+  color: black;
 }
 
 .icon-btn {
   padding: 8px;
+  color: aquamarine;
 }
 
 .icon-btn .MuiSvgIcon-root {
@@ -177,28 +192,48 @@ body, html {
 }
 
 .sb-users, .sb-groups {
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .user-item, .group-item {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
+  margin: 0px;
 }
 
 .user-item:hover, .group-item:hover {
-  background-color: #e0e0e0;
+  background-color: whitesmoke;
+  color: black;
 }
 
 .messages {
   margin-top: 20px;
+  margin-right: 2%;
+  width: 80%;
+  padding: 2%;
 }
 
 .message {
   margin-bottom: 10px;
+ 
+}
+.message-box{
+    width: 100%;
+    border: 1px solid grey; 
+    border-radius: 10px;
+    margin: 1%;
+    justify-content: center;
+    
+}
+.message-box p{
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    padding: 1%;
 }
 
 .no-messages {
-  color: #888;
+  color: #ffffff;
 }
