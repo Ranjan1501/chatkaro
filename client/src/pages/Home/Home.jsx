@@ -23,13 +23,13 @@ function Home() {
       <div className="home-content">
         <div className="bar-text">
           <h3>Use WhatsApp on your computer</h3>
-          <ol class="_aj-b">
-            <li class="_aj-c">Open WhatsApp on your phone</li>
-            <li class="_aj-c">
+          <ol>
+            <li>Open WhatsApp on your phone</li>
+            <li>
               Tap{" "}
               <strong>
                 Menu{" "}
-                <span class="x1rg5ohu x16dsc37">
+                <span>
                   <svg height="24px" viewBox="0 0 24 24" width="24px">
                     <rect fill="#f2f2f2" height="24" rx="3" width="24"></rect>
                     <path
@@ -42,7 +42,7 @@ function Home() {
               on Android, or{" "}
               <strong>
                 Settings{" "}
-                <span class="x1rg5ohu x16dsc37">
+                <span>
                   <svg width="24" height="24" viewBox="0 0 24 24">
                     <rect fill="#F2F2F2" width="24" height="24" rx="3"></rect>
                     <path
@@ -54,11 +54,11 @@ function Home() {
               </strong>{" "}
               on iPhone
             </li>
-            <li class="_aj-c">
+            <li>
               Tap <strong>Linked devices</strong> and then{" "}
               <strong>Link a device</strong>
             </li>
-            <li class="_aj-c">
+            <li>
               <span>
                 Point your phone at this screen to capture the QR code
               </span>
