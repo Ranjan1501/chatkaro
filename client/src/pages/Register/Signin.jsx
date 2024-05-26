@@ -2,8 +2,6 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext";
 import "./Login.css";
-// import Register from "./Signup";
-// import { IconButton } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,17 +28,18 @@ const Login = () => {
       }
 
       const data = await response.json();
-      // Handle successful login, e.g., save token, redirect, etc.
-      console.log(data);
+      console.log("logged in user details:", data);
       if (data.token) {
         handleToken(data.token);
+        localStorage.setItem("sender_id", data.user._id);
+        const sender_id = localStorage.getItem("sender_id");
+        console.log("sender_id", sender_id);
+        console.log("sender type", typeof sender_id);
         navigate("/chat");
       } else {
         setError("Login Failed due to invalid email or password");
         navigate("/signin");
       }
-
-      // Redirect to home page after login
     } catch (err) {
       setError("Invalid email or password");
       console.error("Error:", err);
@@ -78,10 +77,6 @@ const Login = () => {
             <Link to="/signup"> Register</Link>
           </button>
         </div>
-        {/* <a navigate("/signup") > Register </a> */}
-        {/* <IconButton>   <Link to="/signup"> Register</Link>
-       
-        </IconButton> */}
       </form>
     </div>
   );
