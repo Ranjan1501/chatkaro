@@ -1,127 +1,22 @@
-/* General styles
+
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   font-family: Arial, sans-serif;
 }
 
 .main-container {
   display: flex;
-  height: 100vh; /* Full viewport height */
-/* } */
-/*
-.sidebar-container {
-  width: 30%;
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
+  height: 100vh; 
+  width: 100vw;
   box-sizing: border-box;
-}
-
-.chat-area {
-  width: 70%;
-  background-color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Sidebar styles */
-/*
-.sb-header {
-  display: flex;
-  justify-content: right;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.sb-icons {
-  display: flex;
-}
-
-.icon-btn {
-  padding: 2px;
-}
-.btn{
-    background-color: white;
-    color: grey;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    width: 3vw;
-    padding: 0;
-    margin-left: 2vw;
-}
-
-/* Remove hover shadows and ensure consistent icon size */
-/*
-.icon-btn .MuiSvgIcon-root {
-  font-size: 24px; /* Standard icon size */
-  /* box-shadow: none; Remove any shadows */
-  /* transition: none; Ensure no shadow on hover */
-/* } */
-/*
-.icon-btn:hover .MuiSvgIcon-root {
-  box-shadow: none; /* Remove any hover shadows */
-/* } */
-
-/* Consistent spacing for icons */
-/*
-.sb-header .icon-btn, .sb-search .icon-btn, .sb-conversation .icon-btn {
-  margin-right: 1px; /* Adjust as needed for consistent spacing */
-/* } */
-/*
-.sb-search {
-  display: flex;
-  /* align-items: right; */
-  /* justify-content: right;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  margin-left:  3vw; */
-/* } */
-/*
-.search-box {
-  flex:.5;
-  border: none;
-  outline: none;
-  padding: 5px;
-  margin-left: 1.5vw;
-  margin-right: 0;
-}
-
-.sb-conversation {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-} 
-
-*/
-
-
-/* style.css */
-
-/* style.css */
-
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-
-.main-container {
-  display: flex;
-  height: 100vh; /* Full viewport height */
-  box-sizing: border-box;
-  
 }
 
 .sidebar-container {
-  width: 30%;
+  width: 20%;
+  height: 100vh;
   background-color: #f0f0f0;
   display: flex;
   flex-direction: column;
@@ -135,7 +30,7 @@ body, html {
 }
 
 .chat-area {
-  width: 100%;
+  width: 80%;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -145,40 +40,46 @@ body, html {
   background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
-  
-  
+  height: 100vh;
 }
 
 .sb-header {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid #ccc;
 }
 
 .sb-icons {
   display: flex;
   color: black;
+  padding: 1%;
 }
 
 .icon-btn {
-  padding: 8px;
-  color: aquamarine;
+ color: #76c7c0;
+  width: 40px;
+  margin: 0%;
+  box-shadow: none;
+  font-size: 40px;
+  margin-right: 10%;
 }
 
 .icon-btn .MuiSvgIcon-root {
-  font-size: 24px; /* Standard icon size */
-  box-shadow: none; /* Remove any shadows */
-  transition: none; /* Ensure no shadow on hover */
-}
+  font-size: 24px; 
+  box-shadow: none !important; 
+  transition: none; 
 
-.icon-btn:hover .MuiSvgIcon-root {
-  box-shadow: none; /* Remove any hover shadows */
+#icon-btn :hover .MuiSvgIcon-root {
+  box-shadow: none !important;
+  color: #76c7c0;
+  background-color: #ffffff;
 }
 
 .sb-search {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 10px;
   border-bottom: 1px solid #ccc;
 }
@@ -192,20 +93,62 @@ body, html {
 }
 
 .sb-users, .sb-groups {
-  padding: 5px 0;
+  padding: 10px 0;
+
 }
 
 .user-item, .group-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5px;
   cursor: pointer;
-  margin: 0px;
+  margin: 1%;
+  
 }
 
 .user-item:hover, .group-item:hover {
   background-color: whitesmoke;
+  /* color: black; */
+}
+.group-details{
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+}
+.group-name{
+  font-size: larger;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black; 
+  font-weight: 700;
+}
+.group-name:hover{
   color: black;
+  font-weight: 700;
+  font-style: italic; 
+}
+.user-name{
+  font-size: larger;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black; 
+  font-weight: 700;
+}
+.user-name:hover{
+  color: black;
+  font-weight: 700;
+  font-style: italic; 
+
+}
+.user-details{
+  padding: 1%;
+  justify-content: center;
+  align-items: center;
+}
+.user-item .user-details.user-name{
+  font-size: larger;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .messages {
@@ -231,9 +174,67 @@ body, html {
     align-items: center;
     justify-content: center;
     margin: 1%;
-    padding: 1%;
+    padding: 2%;
+    font-size: large;
 }
 
 .no-messages {
   color: #ffffff;
+}  
+
+.message-input-container {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  /* width: 100vw; */
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  overflow-y: auto; 
+}
+
+.message-input {
+  width: 75vw;
+  /* flex-grow: 0.7; */
+  border: none;
+  outline: none;
+  padding: 20px;
+  margin-right: 0px;
+  border-radius: 20px;
+}
+
+.message-send-btn {
+  padding: 15px 20px;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #76c7c0;
+  box-shadow: none;
+  margin: 0%;
+}
+
+.message-send-btn:hover {
+  background-color: #76c7c0;
+  box-shadow: none; 
+  color: #76c7c0;
+}
+#send{
+  color: #76c7c0;
+  width: 40px;
+  margin: 0px;
+  box-shadow: none;
+  font-size: 40px;
+}
+#send .MuiSvgIcon-root {
+  font-size: 24px; 
+  box-shadow: none !important;
+  transition: none; 
+}
+
+#send:hover .MuiSvgIcon-root {
+  box-shadow: none !important; 
+  color: #76c7c0;
+  background-color: #ffffff;
 }
