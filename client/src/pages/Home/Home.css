@@ -10,13 +10,13 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
-    background-color: #f0f0f0;
+    background-color: #075e54;
     /* margin: 10px 10px; */
 }
 
 .home-header {
     width: 100vw;
-    height: 100vh;
+    height: 10vh;
     background-color: #075e54;
     color: white;
     padding: 5px 5px;
@@ -72,4 +72,31 @@ body {
 .main-content p {
     font-size: 18px;
     color: #333;
+}
+.home-content{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    color: azure;
+    margin: 0;
+    /* margin: 10px 10px; */
+}
+.home-content ol{
+    padding: 1%;
+    font-size: x-large;
+    margin-top: 1%;
+}
+.home-content li{
+    padding: 1%;
+    font-size: large;
+    margin-top: 1%;
+}
+.bar-text{
+    margin-left: 10%;
+    width: 60vw;
+}
+.barcode{
+    flex:0.3;
+    width: 40vw; 
 }
