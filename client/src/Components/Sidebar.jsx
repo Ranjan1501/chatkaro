@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import PersonIcon from "@mui/icons-material/Person";
@@ -13,12 +12,11 @@ export default function Sidebar({ onSelectUser, onSelectGroup }) {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-
     fetch("http://localhost:4000/api/users")
       .then((response) => response.json())
       .then((data) => {
-        if (Array.isArray(data.user)) {
-          setUsers(data.user);
+        if (Array.isArray(data.users)) {
+          setUsers(data.users);
         } else {
           console.error("Unexpected user data format:", data);
         }
@@ -27,8 +25,8 @@ export default function Sidebar({ onSelectUser, onSelectGroup }) {
     fetch("http://localhost:4000/api/groups")
       .then((response) => response.json())
       .then((data) => {
-        // console.log("data set to Group: ", data);
-        // setGroups(data);
+        console.log("data set to Group: ", data);
+        setGroups(data);
         if (Array.isArray(data.rooms)) {
           setGroups(data.rooms);
         } else {
@@ -59,13 +57,13 @@ export default function Sidebar({ onSelectUser, onSelectGroup }) {
         <input type="text" placeholder="Search" className="search-box" />
       </div>
       <div className="sb-users">
-        <h3>Users</h3>
+        {/* <h3>Users</h3> */}
         {users.map((user) => (
           <UserItem key={user._id} user={user} onSelectUser={onSelectUser} />
         ))}
       </div>
       <div className="sb-groups">
-        <h3>Groups</h3>
+        {/* <h3>Groups</h3> */}
         {groups.map((group) => (
           <GroupItem
             key={group._id}
