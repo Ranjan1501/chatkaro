@@ -1,63 +1,69 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./style.css";
 import Sidebar from "./Sidebar";
 import ChatArea from "./ChatArea";
+import io from "socket.io-client";
+const socket = io("http://localhost:4000");
 
 export default function MainContainer() {
   const [selectedUserId, setSelectedUserId] = useState("");
   const [selectedGroupId, setSelectedGroupId] = useState("");
   const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    socket.on("message", (message) => {
+      setMessages((prevMessages) => [...prevMessages, message]);
+    });
+  }, []);
 
   const handleSelectUser = (userId) => {
     setSelectedUserId(userId);
-    setSelectedGroupId(null); // Deselect group when user is selected
+    setSelectedGroupId(null);
+    fetchMessages(`http://localhost:4000/api/messages/user/${userId}`);
   };
 
   const handleSelectGroup = (groupId) => {
     setSelectedGroupId(groupId);
-    setSelectedUserId(null); // Deselect user when group is selected
+    setSelectedUserId(null); 
+    fetchMessages(`http://localhost:4000/api/messages/group/${groupId}`);
   };
 
-  console.log("selectedUserId: ", selectedUserId);
-  console.log("selectedGroupId: ", selectedGroupId);
-  useEffect(() => {
-    if (selectedUserId) {
-      // Fetch user messages
+  const fetchMessages = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        if (Array.isArray(data.messages)) {
+          setMessages(data.messages);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
+      })
+      .catch((error) => console.error("Error fetching messages:", error));
+  };
 
-      fetch(`http://localhost:4000/api/messages/user/${selectedUserId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (Array.isArray(data.messages)) {
-            console.log("user message: ", data.messages);
-            setMessages(data.messages);
-          } else {
-            console.error("Unexpected group data format:", data);
-          }
-          // setMessages(data.messages);
-        })
-        .catch((error) =>
-          console.error("Error fetching user messages:", error)
-        );
-    } else if (selectedGroupId) {
-      // Fetch group messages
-      fetch(`http://localhost:4000/api/messages/group/${selectedGroupId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          // setMessages(data);
-          if (Array.isArray(data.messages)) {
-            console.log("group message: ", data.messages);
-            setMessages(data.messages);
-          } else {
-            console.error("Unexpected group data format:", data);
-          }
-        })
-        .catch((error) =>
-          console.error("Error fetching group messages:", error)
-        );
-    }
-  }, [selectedUserId, selectedGroupId]);
+  const handleSendMessage = (messageContent) => {
+    const message = {
+      sender_id: localStorage.getItem("sender_id"), 
+      receiver_id: selectedUserId ? selectedUserId : null,
+      room_id: selectedGroupId ? selectedGroupId : null,
+      isGroupMessage: !!selectedGroupId,
+      message: messageContent,
+    };
 
-  console.log("messages: ", messages);
+    socket.emit("sendMessage", message);
+
+    fetch("http://localhost:4000/api/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setMessages((prevMessages) => [...prevMessages, data.message]);
+      })
+      .catch((error) => console.error("Error sending message:", error));
+  };
 
   return (
     <div className="main-container">
@@ -65,7 +71,7 @@ export default function MainContainer() {
         onSelectUser={handleSelectUser}
         onSelectGroup={handleSelectGroup}
       />
-      <ChatArea messages={messages} />
+      <ChatArea messages={messages} onSendMessage={handleSendMessage} />
     </div>
   );
 }
