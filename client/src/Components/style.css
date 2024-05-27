@@ -69,6 +69,7 @@ body, html {
   font-size: 24px; 
   box-shadow: none !important; 
   transition: none; 
+}
 
 #icon-btn :hover .MuiSvgIcon-root {
   box-shadow: none !important;
